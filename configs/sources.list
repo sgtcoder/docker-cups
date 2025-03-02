@@ -1,0 +1,10 @@
+# See https://wiki.debian.org/SourcesList for more information.
+
+## Bookworm Debian ##
+deb http://deb.debian.org/debian bookworm main contrib non-free non-free-firmware
+
+## Bookworm Debian - Security ##
+deb http://deb.debian.org/debian-security/ bookworm-security main contrib non-free non-free-firmware
+
+## Bookworm Debian - Updates ##
+deb http://deb.debian.org/debian bookworm-updates main contrib non-free non-free-firmware
