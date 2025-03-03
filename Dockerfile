@@ -1,5 +1,5 @@
 ## Set our base image ##
-FROM anujdatar/cups:latest
+FROM sgtcoder/cups-core:latest
 
 COPY configs/sources.list /etc/apt/sources.list
 
@@ -16,7 +16,16 @@ RUN chown _apt /etc/apt/keyrings/*.gpg
 RUN echo "deb [arch=amd64,i386 signed-by=/etc/apt/keyrings/sgtcoder.gpg] https://repo.sgtcoder.com/debian stable main" > /etc/apt/sources.list.d/sgtcoder.list
 
 ## Install Packages ##
-RUN apt-get update && apt-get install -y --no-install-recommends dcp7065dnlpr cupswrapperdcp7065dn
+RUN apt-get update && apt-get install -y --no-install-recommends dcp7065dnlpr cupswrapperdcp7065dn \
+    apt-utils \
+    usbutils \
+    printer-driver-all \
+    printer-driver-cups-pdf \
+    printer-driver-foo2zjs \
+    openprinting-ppds \
+    hpijs-ppds \
+    hp-ppd \
+    hplip
 
 ## Cleanup ##
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
